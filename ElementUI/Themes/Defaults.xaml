@@ -1,0 +1,18 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Controls="clr-namespace:ElementUI.Controls;assembly=ElementUI">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/ElementUI;component/Themes/ELFont.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/ElementUI;component/Themes/ELButton.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <SolidColorBrush x:Key="ElementUIDefaultColorBrush" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="ElementUIPrimaryColorBrush" Color="#409EFF"/>
+    <SolidColorBrush x:Key="ElementUISuccessColorBrush" Color="#67C23A"/>
+    <SolidColorBrush x:Key="ElementUIInfoColorBrush" Color="#909399"/>
+    <SolidColorBrush x:Key="ElementUIWarningColorBrush" Color="#E6A23C"/>
+    <SolidColorBrush x:Key="ElementUIDangerColorBrush" Color="#F56C6C"/>
+
+</ResourceDictionary>

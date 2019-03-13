@@ -1,0 +1,15 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/ElementUI Xaml Toolkit/v16
+/ElementUI/bin/Debug/netcoreapp3.0
+/ElementUI/obj
+/ElementUI.Wpf/bin/Debug
+/ElementUI.Wpf/obj/Debug
+/ElementUI.Xaml/bin/Debug
+/ElementUI.Xaml/obj
+/WpfNetCore/bin/Debug/netcoreapp3.0
+/WpfNetCore/obj
+/WpfNetFramework/bin/Debug
+/WpfNetFramework/obj/Debug
