@@ -9,13 +9,6 @@
         <ResourceDictionary Source="pack://application:,,,/ElementUI.Wpf;component/Themes/ElementUI.Colors.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <!--<SolidColorBrush x:Key="ElementUI.DefaultColorBrush" Color="#FFFFFF"/>
-    <SolidColorBrush x:Key="ElementUI.PrimaryColorBrush" Color="#409EFF"/>
-    <SolidColorBrush x:Key="ElementUI.SuccessColorBrush" Color="#67C23A"/>
-    <SolidColorBrush x:Key="ElementUI.InfoColorBrush" Color="#909399"/>
-    <SolidColorBrush x:Key="ElementUI.WarningColorBrush" Color="#E6A23C"/>
-    <SolidColorBrush x:Key="ElementUI.DangerColorBrush" Color="#F56C6C"/>-->
-
     <Converters:HslColorConverter x:Key="HslColorConverter"/>
     
     <ControlTemplate x:Key="ElementUI.ButtonTemplate" TargetType="{x:Type ElementUI:ELButton}" >
@@ -43,41 +36,41 @@
             <Trigger Property="Corners" Value="{x:Static ElementUI:ELButtonCorners.Default}">
                 <Setter TargetName="border" Property="CornerRadius" Value="3"/>
             </Trigger>
-            
+
             <Trigger Property="Type" Value="{x:Static ElementUI:ELButtonType.Default}">
-                <Setter Property="BorderBrush" Value="#DCDFE6"/>
+                <Setter Property="Foreground" Value="#5e5e5e"/>
+                <Setter TargetName="border" Property="BorderBrush" Value="#DCDFE6"/>
+                <Setter TargetName="border"  Property="Background" Value="{StaticResource ElementUI.DefaultColorBrush}"/>
             </Trigger>
-
             <Trigger Property="Type" Value="{x:Static ElementUI:ELButtonType.Primary}">
-                <Setter Property="BorderBrush" Value="{StaticResource ElementUI.PrimaryColorBrush}"/>
-                <Setter Property="Background">
-                    <Setter.Value>
-                        <MultiBinding Converter="{StaticResource HslColorConverter}" ConverterParameter="1.55">
-                            <Binding Path="Plain" RelativeSource="{RelativeSource Mode=Self}"/>
-                            <Binding Source="{StaticResource ElementUI.PrimaryColorBrush}"/>
-                        </MultiBinding>
-                    </Setter.Value>
-                </Setter>
+                <Setter Property="Foreground" Value="#FFFFFF"/>
+                <Setter TargetName="border"  Property="BorderBrush" Value="{StaticResource ElementUI.PrimaryColorBrush}"/>
+                <Setter TargetName="border"  Property="Background" Value="{StaticResource ElementUI.PrimaryColorBrush}"/>
             </Trigger>
-
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="BorderBrush" Value="{StaticResource ElementUI.PrimaryColorBrush}"/>
-                <Setter Property="Foreground">
-                    <Setter.Value>
-                        <MultiBinding Converter="{StaticResource HslColorConverter}" ConverterParameter="2">
-                            <Binding Path="Plain" RelativeSource="{RelativeSource Mode=Self}"/>
-                            <Binding Path="Background" RelativeSource="{RelativeSource Mode=Self}"/>
-                        </MultiBinding>
-                    </Setter.Value>
-                </Setter>
+            <Trigger Property="Type" Value="{x:Static ElementUI:ELButtonType.Success}">
+                <Setter Property="Foreground" Value="#FFFFFF"/>
+                <Setter TargetName="border"  Property="BorderBrush" Value="{StaticResource ElementUI.SuccessColorBrush}"/>
+                <Setter TargetName="border"  Property="Background" Value="{StaticResource ElementUI.SuccessColorBrush}"/>
+            </Trigger>
+            <Trigger Property="Type" Value="{x:Static ElementUI:ELButtonType.Info}">
+                <Setter Property="Foreground" Value="#FFFFFF"/>
+                <Setter TargetName="border"  Property="BorderBrush" Value="{StaticResource ElementUI.InfoColorBrush}"/>
+                <Setter TargetName="border"  Property="Background" Value="{StaticResource ElementUI.InfoColorBrush}"/>
+            </Trigger>
+            <Trigger Property="Type" Value="{x:Static ElementUI:ELButtonType.Warning}">
+                <Setter Property="Foreground" Value="#FFFFFF"/>
+                <Setter TargetName="border"  Property="BorderBrush" Value="{StaticResource ElementUI.WarningColorBrush}"/>
+                <Setter TargetName="border"  Property="Background" Value="{StaticResource ElementUI.WarningColorBrush}"/>
+            </Trigger>
+            <Trigger Property="Type" Value="{x:Static ElementUI:ELButtonType.Danger}">
+                <Setter Property="Foreground" Value="#FFFFFF"/>
+                <Setter TargetName="border"  Property="BorderBrush" Value="{StaticResource ElementUI.DangerColorBrush}"/>
+                <Setter TargetName="border"  Property="Background" Value="{StaticResource ElementUI.DangerColorBrush}"/>
             </Trigger>
             
-            <Trigger Property="IsPressed" Value="True">
+            <!--<Trigger Property="IsEnabled" Value="False"> 
                 
-            </Trigger>
-            <Trigger Property="IsEnabled" Value="False"> 
-                
-            </Trigger>
+            </Trigger>-->
         </ControlTemplate.Triggers>
     </ControlTemplate>
  
@@ -91,7 +84,7 @@
         
         <Style.Triggers>
             <Trigger Property="Size" Value="{x:Static ElementUI:ELButtonSize.Default}">
-                <Setter Property="Padding" Value="20, 10"/>
+                <Setter Property="Padding" Value="20, 9"/>
                 <Setter Property="FontSize" Value="14"/>
             </Trigger>
 

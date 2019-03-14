@@ -4,9 +4,9 @@
 
     <SolidColorBrush x:Key="ElementUI.DefaultColorBrush" Color="#FFFFFF"/>
     <SolidColorBrush x:Key="ElementUI.PrimaryColorBrush" Color="#409EFF"/>
-    <SolidColorBrush x:Key="ElementUI.SuccessColorBrush" Color="#67C23A"/>
+    <SolidColorBrush x:Key="ElementUI.SuccessColorBrush" Color="#56e54e"/>
     <SolidColorBrush x:Key="ElementUI.InfoColorBrush" Color="#909399"/>
-    <SolidColorBrush x:Key="ElementUI.WarningColorBrush" Color="#E6A23C"/>
-    <SolidColorBrush x:Key="ElementUI.DangerColorBrush" Color="#F56C6C"/>
+    <SolidColorBrush x:Key="ElementUI.WarningColorBrush" Color="#e5b244"/>
+    <SolidColorBrush x:Key="ElementUI.DangerColorBrush" Color="#ff405f"/>
     
 </ResourceDictionary>

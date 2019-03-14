@@ -1,10 +1,80 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Input;
+using System.Windows.Media;
+using ElementUI.Wpf.Utils;
 
 namespace ElementUI.Wpf
 {
-    public class ELButton : Button
+    public class ELButton : ButtonBase
     {
+        private SolidColorBrush _typeColorBrush;
+
+        public ELButton()
+        {
+            AddHandler(ELButton.MouseEnterEvent, new MouseEventHandler(OnMouseEnter));
+            AddHandler(ELButton.MouseLeaveEvent, new MouseEventHandler(OnMouseLeave));
+        }
+
+        private void OnMouseEnter(object sender, MouseEventArgs e)
+        {
+            if (!(GetTemplateChild("border") is Border border))
+                return;
+
+            if (Type == ELButtonType.Default)
+                return;
+
+            if (Plain)
+            {
+                SetValue(ELButton.ForegroundProperty, Brushes.White);
+
+                border.SetValue(Border.BackgroundProperty, _typeColorBrush);
+            }
+            else
+            {
+                border.SetValue(Border.BackgroundProperty, new SolidColorBrush(new HslColor(_typeColorBrush.Color).Lighten(1.17).ToRgb()));
+            }
+
+        }
+
+        private void OnMouseLeave(object sender, MouseEventArgs e)
+        {
+            if (!(GetTemplateChild("border") is Border border))
+                return;
+
+            if (Type == ELButtonType.Default)
+                return;
+
+            if (Plain)
+            {
+                SetValue(ELButton.ForegroundProperty, _typeColorBrush);
+
+                border.SetValue(Border.BackgroundProperty, new SolidColorBrush(new HslColor(_typeColorBrush.Color).Lighten(1.55).ToRgb()));
+            }
+            else
+            {
+                border.SetValue(Border.BackgroundProperty, _typeColorBrush);
+            }
+        }
+
+        public override void OnApplyTemplate()
+        {
+            GetCurrentBackground();
+
+            TypePropertyChangedCallback(this, new DependencyPropertyChangedEventArgs());
+
+            base.OnApplyTemplate();
+        }
+
+        private void GetCurrentBackground()
+        {
+            if (!(GetTemplateChild("border") is Border border))
+                return;
+
+            _typeColorBrush = border.Background as SolidColorBrush;
+        }
+
         public ELButtonType Type
         {
             get { return (ELButtonType)GetValue(TypeProperty); }
@@ -16,7 +86,32 @@ namespace ElementUI.Wpf
                 nameof(Type),
                 typeof(ELButtonType),
                 typeof(ELButton),
-                new PropertyMetadata(ELButtonType.Default));
+                new PropertyMetadata(ELButtonType.Default, TypePropertyChangedCallback));
+
+        private static void TypePropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
+        {
+            var elButton = (ELButton)dependencyObject;
+            if (!(elButton.GetTemplateChild("border") is Border border))
+                return;
+
+            if (elButton.Type == ELButtonType.Default)
+                return;
+
+            if (!elButton.Plain)
+                return;
+
+            var curBgColor = border.Background as SolidColorBrush;
+            var newBgColor = new HslColor(curBgColor.Color)
+                .Lighten(1.55)
+                .ToRgb();
+
+            var colorBrush = new SolidColorBrush(newBgColor);
+
+            border.SetValue(Border.BackgroundProperty, colorBrush);
+
+            elButton.SetValue(Border.BackgroundProperty, curBgColor);
+            elButton.SetValue(ELButton.ForegroundProperty, curBgColor);
+        }
 
         public ELButtonSize Size
         {
@@ -43,8 +138,6 @@ namespace ElementUI.Wpf
                 typeof(ELButtonCorners),
                 typeof(ELButton),
                 new PropertyMetadata(ELButtonCorners.Default));
-
-
         public bool Plain
         {
             get { return (bool)GetValue(PlainProperty); }
