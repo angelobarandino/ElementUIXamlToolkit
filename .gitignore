@@ -20,3 +20,5 @@ TestResult.xml
 Version.cs
 Version.h
 Version.cpp
+.vscode/launch.json
+.vscode/tasks.json
