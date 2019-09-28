@@ -1,11 +1,9 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
-
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
+    <UseWPF>true</UseWPF>
   </PropertyGroup>
-
   <ItemGroup>
-    <None Remove="ElementUI.Defaults.xaml" />
     <None Remove="Resources\Muli\Muli-Black.ttf" />
     <None Remove="Resources\Muli\Muli-BlackItalic.ttf" />
     <None Remove="Resources\Muli\Muli-Bold.ttf" />
@@ -20,10 +18,7 @@
     <None Remove="Resources\Muli\Muli-Regular.ttf" />
     <None Remove="Resources\Muli\Muli-SemiBold.ttf" />
     <None Remove="Resources\Muli\Muli-SemiBoldItalic.ttf" />
-    <None Remove="Themes\ELButton.xaml" />
-    <None Remove="Themes\ElFont.xaml" />
   </ItemGroup>
-
   <ItemGroup>
     <Resource Include="Resources\Muli\Muli-Black.ttf" />
     <Resource Include="Resources\Muli\Muli-BlackItalic.ttf" />
@@ -39,21 +34,5 @@
     <Resource Include="Resources\Muli\Muli-Regular.ttf" />
     <Resource Include="Resources\Muli\Muli-SemiBold.ttf" />
     <Resource Include="Resources\Muli\Muli-SemiBoldItalic.ttf" />
-    <Resource Include="Themes\Defaults.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Resource>
-    <Resource Include="Themes\ELButton.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Resource>
-    <Resource Include="Themes\ELFont.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Resource>
   </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Themes\Defaults.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </None>
-  </ItemGroup>
-
 </Project>

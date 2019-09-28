@@ -1,0 +1,51 @@
+﻿<Window x:Class="ElementUI.Demo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:el="clr-namespace:ElementUI;assembly=ElementUI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Margin="0,0,0,20">
+            <Label Content="Basic Usage" FontWeight="SemiBold" FontSize="18"/>
+            <StackPanel Orientation="Horizontal" el:Spacer.All="5">
+                <el:ELButton Content="Default"/>
+                <el:ELButton Content="Primary" Type="Primary"/>
+                <el:ELButton Content="Success" Type="Success"/>
+                <el:ELButton Content="Warning" Type="Warning"/>
+                <el:ELButton Content="Danger" Type="Danger"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" el:Spacer.All="5">
+                <el:ELButton Content="Default" Plain="True"/>
+                <el:ELButton Content="Primary" Type="Primary" Plain="True"/>
+                <el:ELButton Content="Success" Type="Success" Plain="True"/>
+                <el:ELButton Content="Warning" Type="Warning" Plain="True"/>
+                <el:ELButton Content="Danger" Type="Danger" Plain="True"/>
+            </StackPanel>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="1">
+            <Label Content="Sizes" FontWeight="SemiBold" FontSize="18"/>
+            <StackPanel Orientation="Horizontal" el:Spacer.All="5">
+                <el:ELButton Content="Default" Size="Default"/>
+                <el:ELButton Content="Medium" Size="Medium"/>
+                <el:ELButton Content="Small" Size="Small"/>
+                <el:ELButton Content="Tiny" Size="Tiny"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" el:Spacer.All="5">
+                <el:ELButton Content="Default"  Rounded="True"/>
+                <el:ELButton Content="Primary" Type="Primary" Rounded="True"/>
+                <el:ELButton Content="Success" Type="Success" Rounded="True" Size="Medium"/>
+                <el:ELButton Content="Warning" Type="Warning" Rounded="True" Size="Small"/>
+                <el:ELButton Content="Danger" Type="Danger" Rounded="True" Size="Tiny"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
